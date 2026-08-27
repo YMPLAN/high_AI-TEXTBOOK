@@ -97,25 +97,25 @@ function SmartClass() {
 
   return (
     <SidebarProvider style={{ "--sidebar-width": "19rem" } as React.CSSProperties}>
-      <Sidebar className="border-r-0 bg-[#0a1020] text-white" collapsible="offcanvas">
-        <SidebarHeader className="border-b border-white/10 p-5">
+      <Sidebar className="border-r border-[#dce9e3] bg-[#f8fbf9] text-[#17352d]" collapsible="offcanvas">
+        <SidebarHeader className="border-b border-[#dce9e3] bg-white p-5">
           <div className="flex items-center gap-3">
-            <div className="grid size-10 place-items-center rounded-2xl bg-[#c8ff52] text-[#07101c]"><Sparkles size={20} /></div>
-            <div><p className="text-[10px] font-black tracking-[.2em] text-white/40">UNIT 1 SAMPLE</p><h1 className="text-sm font-bold">인공지능 기초 스마트 수업</h1></div>
+            <div className="grid size-10 place-items-center rounded-2xl bg-[#36c98f] text-white shadow-[0_8px_20px_rgba(54,201,143,.24)]"><Sparkles size={20} /></div>
+            <div><p className="text-[10px] font-black tracking-[.2em] text-[#36a97d]">UNIT 1 SAMPLE</p><h1 className="text-sm font-bold">인공지능 기초 스마트 수업</h1></div>
           </div>
         </SidebarHeader>
         <SidebarContent className="px-2 py-3">
           {sectionGroups.map((group) => (
             <SidebarGroup key={group.id}>
-              <SidebarGroupLabel className="h-auto px-2 py-2 text-white/70">
+              <SidebarGroupLabel className="h-auto px-2 py-2 text-[#365b50]">
                 <span className="mr-2 size-2 rounded-full" style={{ background: group.color }} />
-                <span className="truncate">{group.title}</span><span className="ml-auto text-[10px] text-white/30">{group.slides.length}</span>
+                <span className="truncate">{group.title}</span><span className="ml-auto rounded-full bg-[#e7f4ee] px-2 py-0.5 text-[10px] text-[#43806d]">{group.slides.length}</span>
               </SidebarGroupLabel>
               <SidebarGroupContent><SidebarMenu>
                 {lessonLinks.filter(({ item }) => item.section === group.id).map(({ item, i }) => (
                   <SidebarMenuItem key={`${item.section}-${item.lesson}`}>
-                    <SidebarMenuButton isActive={slide.lesson === item.lesson && slide.section === item.section} onClick={() => move(i)} className="h-auto min-h-9 rounded-xl px-3 py-2 text-white/50 hover:bg-white/8 hover:text-white data-[active=true]:bg-white/12 data-[active=true]:text-white" tooltip={item.lesson}>
-                      <span className="truncate text-xs">{item.lesson}</span><span className="ml-auto text-[10px] text-white/25">p.{item.page}</span>
+                    <SidebarMenuButton isActive={slide.lesson === item.lesson && slide.section === item.section} onClick={() => move(i)} className="h-auto min-h-9 rounded-xl px-3 py-2 text-[#668078] hover:bg-[#eaf6f0] hover:text-[#17352d] data-[active=true]:bg-[#dff5ea] data-[active=true]:font-bold data-[active=true]:text-[#176f53]" tooltip={item.lesson}>
+                      <span className="truncate text-xs">{item.lesson}</span><span className="ml-auto text-[10px] text-[#94aaa3]">p.{item.page}</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
@@ -123,21 +123,21 @@ function SmartClass() {
             </SidebarGroup>
           ))}
         </SidebarContent>
-        <SidebarFooter className="border-t border-white/10 p-4 text-[11px] leading-5 text-white/40">
+        <SidebarFooter className="border-t border-[#dce9e3] bg-white p-4 text-[11px] leading-5 text-[#779189]">
           <div className="flex items-center gap-2"><BookOpen size={14} /> 길벗 교과서 1단원 p.8–53</div>
           <div>교과서 46쪽 → 수업 화면 {slides.length}개</div>
         </SidebarFooter>
       </Sidebar>
 
-      <SidebarInset className="min-w-0 bg-[#e8edf4]">
-        <header className="flex h-16 items-center justify-between border-b border-black/8 bg-white/90 px-4 backdrop-blur-xl md:px-7">
+      <SidebarInset className="min-w-0 bg-[#f1f7f4]">
+        <header className="flex h-16 items-center justify-between border-b border-[#dce9e3] bg-white/95 px-4 shadow-[0_4px_18px_rgba(31,88,69,.04)] backdrop-blur-xl md:px-7">
           <div className="flex min-w-0 items-center gap-3">
             <SidebarTrigger className="rounded-xl border border-black/8"><Menu /></SidebarTrigger>
             <span className="hidden rounded-full px-3 py-1 text-xs font-black sm:inline-flex" style={{ background: section.color, color: "#07101c" }}>Ⅰ</span>
             <div className="min-w-0"><p className="truncate text-sm font-bold text-[#111827]">{slide.lesson}</p><p className="truncate text-xs text-[#697386]">{kindLabel[slide.kind]} · 교과서 {slide.page}쪽</p></div>
           </div>
           <div className="flex items-center gap-2 sm:gap-3">
-            <Button variant="outline" size="sm" className="rounded-xl" onClick={() => setListOpen(true)}><Grid2X2 /><span className="hidden sm:inline">전체 목록</span></Button>
+            <Button variant="outline" size="sm" className="rounded-xl border-[#cfe5db] bg-[#f6fbf8] text-[#236b55] hover:bg-[#e7f6ef]" onClick={() => setListOpen(true)}><Grid2X2 /><span className="hidden sm:inline">전체 목록</span></Button>
             <span className="font-mono text-xs font-bold text-[#697386]">{String(index + 1).padStart(3, "0")} / {slides.length}</span>
             <div className="hidden w-28 sm:block"><Progress value={progress} className="h-1.5 bg-black/8 [&_[data-slot=progress-indicator]]:bg-[#111827]" /></div>
           </div>
@@ -201,7 +201,7 @@ function SmartClass() {
           <nav className="deck-controls" aria-label="슬라이드 이동">
             <Button variant="outline" size="lg" disabled={index === 0} onClick={() => move(index - 1)}><ArrowLeft /> 이전</Button>
             <div className="hidden items-center gap-2 text-xs font-semibold text-[#697386] sm:flex"><Film size={15} />{slide.lesson}</div>
-            <Button size="lg" className="bg-[#111827] text-white hover:bg-[#263244]" disabled={index === slides.length - 1} onClick={() => move(index + 1)}>다음<ArrowRight /></Button>
+            <Button size="lg" className="bg-[#22a875] text-white shadow-[0_8px_20px_rgba(34,168,117,.2)] hover:bg-[#188a60]" disabled={index === slides.length - 1} onClick={() => move(index + 1)}>다음<ArrowRight /></Button>
           </nav>
         </main>
 
