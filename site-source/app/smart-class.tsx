@@ -155,6 +155,7 @@ function SmartClass() {
             <div className="slide-content">
               <div className="slide-copy">
                 <p className="slide-kicker"><Sparkles size={14} />{slide.eyebrow}</p><h2>{slide.title}</h2><div className="title-swoosh" aria-hidden="true" /><p className="slide-lead">{slide.lead}</p>
+                {slide.summary && <div className="lesson-summary"><div className="summary-label"><BookOpen size={18} /><span>학습 내용 요약</span></div><p>{slide.summary}</p></div>}
                 {slide.prompt && <div className="prompt-card"><CircleHelp size={20} /><p>{slide.prompt}</p></div>}
               </div>
 
