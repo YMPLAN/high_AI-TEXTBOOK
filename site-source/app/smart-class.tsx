@@ -96,7 +96,7 @@ function SmartClass() {
   }, [advance, index, move, slide.kind]);
 
   return (
-    <SidebarProvider style={{ "--sidebar-width": "19rem" } as React.CSSProperties}>
+    <SidebarProvider defaultOpen={false} style={{ "--sidebar-width": "19rem" } as React.CSSProperties}>
       <Sidebar className="border-r border-[#dce9e3] bg-[#f8fbf9] text-[#17352d]" collapsible="offcanvas">
         <SidebarHeader className="border-b border-[#dce9e3] bg-white p-5">
           <div className="flex items-center gap-3">
@@ -132,8 +132,8 @@ function SmartClass() {
       <SidebarInset className="min-w-0 bg-[#f1f7f4]">
         <header className="flex h-16 items-center justify-between border-b border-[#dce9e3] bg-white/95 px-4 shadow-[0_4px_18px_rgba(31,88,69,.04)] backdrop-blur-xl md:px-7">
           <div className="flex min-w-0 items-center gap-3">
-            <SidebarTrigger className="rounded-xl border border-black/8"><Menu /></SidebarTrigger>
-            <span className="hidden rounded-full px-3 py-1 text-xs font-black sm:inline-flex" style={{ background: section.color, color: "#07101c" }}>Ⅰ</span>
+            <SidebarTrigger className="rounded-xl border border-[#cfe5db] bg-[#f6fbf8] text-[#236b55]"><Menu /></SidebarTrigger>
+            <span className="hidden rounded-full px-3 py-1 text-xs font-black shadow-sm sm:inline-flex" style={{ background: section.color, color: "#17352d" }}>UNIT Ⅰ</span>
             <div className="min-w-0"><p className="truncate text-sm font-bold text-[#111827]">{slide.lesson}</p><p className="truncate text-xs text-[#697386]">{kindLabel[slide.kind]} · 교과서 {slide.page}쪽</p></div>
           </div>
           <div className="flex items-center gap-2 sm:gap-3">
@@ -143,9 +143,10 @@ function SmartClass() {
           </div>
         </header>
 
-        <main className="flex min-h-[calc(100svh-4rem)] flex-col p-3 md:p-6 lg:p-8">
+        <main className="flex min-h-[calc(100svh-4rem)] flex-col p-3 md:p-5 lg:p-6">
           <section className={`slide-frame kind-${slide.kind}`} style={{ "--unit": section.color } as React.CSSProperties}>
             <div className="slide-grid" aria-hidden="true" />
+            <div className="slide-doodles" aria-hidden="true"><i /><i /><i /><span>✦</span><span>+</span></div>
             <div className="slide-topline">
               <div className="flex items-center gap-2"><span className="kind-dot" /><span>{kindLabel[slide.kind]}</span><ChevronRight size={14} /><span>{slide.eyebrow}</span></div>
               <span className="page-chip">교과서 p.{slide.page}</span>
@@ -153,7 +154,7 @@ function SmartClass() {
 
             <div className="slide-content">
               <div className="slide-copy">
-                <p className="slide-kicker">{slide.eyebrow}</p><h2>{slide.title}</h2><p className="slide-lead">{slide.lead}</p>
+                <p className="slide-kicker"><Sparkles size={14} />{slide.eyebrow}</p><h2>{slide.title}</h2><div className="title-swoosh" aria-hidden="true" /><p className="slide-lead">{slide.lead}</p>
                 {slide.prompt && <div className="prompt-card"><CircleHelp size={20} /><p>{slide.prompt}</p></div>}
               </div>
 
@@ -185,6 +186,10 @@ function SmartClass() {
               </div>
 
               {slide.note && <div className="callout"><Lightbulb size={19} /><p>{slide.note}</p></div>}
+            </div>
+
+            <div className="class-mascot" aria-hidden="true">
+              <span className="mascot-antenna">✦</span><div className="mascot-face"><i /><i /><b>⌣</b></div><div className="mascot-body">AI</div><span className="mascot-wave">⌁</span>
             </div>
 
             <div className="slide-footer">
