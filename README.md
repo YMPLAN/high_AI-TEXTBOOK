@@ -9,9 +9,10 @@
 - 교과서 쪽수·화면 유형 기반 전체 목록
 - 키보드·모바일 탐색 지원
 
-## 실행
+## 실행과 자료
 
 - [배포된 스마트 수업 열기](https://gilbut-ai-smart-class.ymplan1.chatgpt.site)
 - [타사 변환 분석과 길벗 설계 문서](./SMART_CLASS_TRANSFORMATION_ANALYSIS.md)
+- [최신 배포본 핵심 소스](./site-source/)
 
 기존 정적 샘플의 `smart-class/index.html`은 최신 배포본으로 연결됩니다.
